@@ -120,7 +120,7 @@ FTP=c(
 dir.create("RawData") # A directory to store all of our data
 for (i in 1:nrow(metadata)){
   if(!file.exists(paste0("RawData/", metadata[i,"sample_name"],".fastq.gz"))){
-    download.file(metadata[i,"FTP"], paste0("RawData/", metadata[i,"sample_name"],".fastq.gz"), method="curl", quiet=F)
+    download.file(paste0(metadata[i,"FTP"]), paste0("RawData/", metadata[i,"sample_name"],".fastq.gz"), method="curl", quiet=F)
   } else {
     print(paste0("You have already downloaded: ", metadata[i,"sample_name"]))
   }
