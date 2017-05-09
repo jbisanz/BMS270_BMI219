@@ -29,8 +29,8 @@ devtools::install_github("jbisanz/MicrobeR")
 if(.Platform$OS.type=="unix"){
   print("Downloading for OSX and Ubuntu using curl")
   
-download("https://zenodo.org/record/158955/files/rdp_train_set_14.fa.gz", "rdp_train_set_14.fa.gz", method="curl", quiet=F)
-download("https://zenodo.org/record/158955/files/rdp_species_assignment_14.fa.gz", "rdp_species_assignment_14.fa.gz", method="curl", quiet=F)
+download.file("https://zenodo.org/record/158955/files/rdp_train_set_14.fa.gz", "rdp_train_set_14.fa.gz", method="curl", quiet=F)
+download.file("https://zenodo.org/record/158955/files/rdp_species_assignment_14.fa.gz", "rdp_species_assignment_14.fa.gz", method="curl", quiet=F)
 
 metadata<-data.frame(
 FTP=c(
