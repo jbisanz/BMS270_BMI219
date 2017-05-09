@@ -1,11 +1,13 @@
 #Script to install all requirements for Microbiome tool
 
 #Now get required packages
+install.packages("munsell")
 install.packages("devtools")
 library("devtools")
 source("https://bioconductor.org/biocLite.R") #install bioconductor
 
 install.packages("vegan")
+install.packages("gplots")
 install.packages("plyr")
 install.packages("reshape2")
 devtools::install_github("tidyverse/ggplot2")
@@ -24,8 +26,11 @@ biocLite("DESeq2")
 devtools::install_github("benjjneb/dada2")
 devtools::install_github("jbisanz/MicrobeR")
 
-download.file("https://zenodo.org/record/158955/files/rdp_train_set_14.fa.gz", "rdp_train_set_14.fa.gz", method="wget", quiet=F)
-download.file("https://zenodo.org/record/158955/files/rdp_species_assignment_14.fa.gz", "rdp_species_assignment_14.fa.gz", method="wget", quiet=F)
+install.packages("downloader")
+require("downloader")
+
+download("https://zenodo.org/record/158955/files/rdp_train_set_14.fa.gz", "rdp_train_set_14.fa.gz", quiet=F)
+download("https://zenodo.org/record/158955/files/rdp_species_assignment_14.fa.gz", "rdp_species_assignment_14.fa.gz", quiet=F)
 
 metadata<-data.frame(
 FTP=c(
@@ -116,7 +121,7 @@ FTP=c(
 dir.create("RawData") # A directory to store all of our data
 for (i in 1:nrow(metadata)){
   if(!file.exists(paste0("RawData/", metadata[i,"sample_name"],".fastq.gz"))){
-    download.file(metadata[i,"FTP"], paste0("RawData/", metadata[i,"sample_name"],".fastq.gz"), method="wget", quiet=F)
+    download(metadata[i,"FTP"], paste0("RawData/", metadata[i,"sample_name"],".fastq.gz"), quiet=F)
   } else {
     print(paste0("You have already downloaded: ", metadata[i,"sample_name"]))
   }
