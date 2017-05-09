@@ -126,5 +126,5 @@ for (i in 1:nrow(metadata)){
   }
 }
 } else {
-    print("Sequencing data could not be automatically downloaded. Please download from the following link:")
+    print("Sequencing data could not be automatically downloaded. Please download from the following link: https://github.com/jbisanz/BMS270_BMI219/raw/master/tutorialdata.tar.gz")
   }
