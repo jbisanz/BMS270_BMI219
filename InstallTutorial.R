@@ -1,11 +1,10 @@
 #Script to install all requirements for Microbiome tool
 
 #Now get required packages
-install.packages("munsell")
-install.packages("devtools")
 if(!require(devtools)){install.packages("devtools")}
 source("https://bioconductor.org/biocLite.R") #install bioconductor
 
+install.packages("munsell")
 install.packages("vegan")
 install.packages("gplots")
 install.packages("plyr")
