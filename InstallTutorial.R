@@ -3,7 +3,7 @@
 #Now get required packages
 install.packages("munsell")
 install.packages("devtools")
-library("devtools")
+if(!require("devtools")){install.packages("devtools")}
 source("https://bioconductor.org/biocLite.R") #install bioconductor
 
 install.packages("vegan")
