@@ -4,26 +4,27 @@
 if(!require(devtools)){install.packages("devtools")}
 source("https://bioconductor.org/biocLite.R") #install bioconductor
 
-install.packages("munsell")
-install.packages("vegan")
-install.packages("gplots")
-install.packages("plyr")
-install.packages("reshape2")
-devtools::install_github("tidyverse/ggplot2")
-install.packages("seqinr")
-install.packages("DT")
-install.packages("textmineR")
-install.packages("plotly")
+if(!require(munsell)){install.packages("munsell")}
+if(!require(vegan)){install.packages("vegan")}
+if(!require(gplots)){install.packages("gplots")}
+if(!require(plyr)){install.packages("plyr")}
+if(!require(reshape2)){install.packages("reshape2")}
+if(!require(ggplot2)){devtools::install_github("tidyverse/ggplot2")}
+if(!require(seqinr)){install.packages("seqinr")}
+if(!require(DT)){install.packages("DT")}
+if(!require(textmineR)){install.packages("textmineR")}
+if(!require(plotly)){install.packages("plotly")}
 
-biocLite("phyloseq")
-biocLite("genefilter")
-biocLite("DECIPHER")
-biocLite("phangorn")
-biocLite("ggtree")
-biocLite("DESeq2")
+if(!require(phyloseq)){biocLite("phyloseq")}
+if(!require(genefilter)){biocLite("genefilter")}
+if(!require(DECIPHER)){biocLite("DECIPHER")}
+if(!require(phangorn)){biocLite("phangorn")}
+if(!require(ggtree)){biocLite("ggtree")}
+if(!require(DESeq2)){biocLite("DESeq2")}
 
-devtools::install_github("benjjneb/dada2")
-devtools::install_github("jbisanz/MicrobeR")
+require(devtools)
+if(!require(dada2)){devtools::install_github("benjjneb/dada2")}
+devtools::install_github("jbisanz/MicrobeR") #always resinstall this as it is in development phase
 
 if(.Platform$OS.type=="unix"){
   print("Downloading raw for OSX and Ubuntu using curl")
@@ -31,6 +32,8 @@ if(.Platform$OS.type=="unix"){
 download.file("https://zenodo.org/record/158955/files/rdp_train_set_14.fa.gz", "rdp_train_set_14.fa.gz", method="curl", quiet=F)
 download.file("https://zenodo.org/record/158955/files/rdp_species_assignment_14.fa.gz", "rdp_species_assignment_14.fa.gz", method="curl", quiet=F)
 download.file("https://raw.githubusercontent.com/jbisanz/BMS270_BMI219/master/Tutorial_metadata.txt","Tutorial_metadata.txt", method="curl", quiet=F)
+download.file("https://raw.githubusercontent.com/jbisanz/BMS270_BMI219/master/error_profile.RDS","error_profile.RDS", method="curl", quiet=F)
+download.file("https://raw.githubusercontent.com/jbisanz/BMS270_BMI219/master/tree.RDS","tree.RDS", method="curl", quiet=F)
 
 metadata<-data.frame(
 FTP=c(
