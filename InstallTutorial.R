@@ -1,4 +1,4 @@
-#Script to install all requirements for Microbiome tool
+#Script to install all requirements for Microbiome tutorial
 
 #Now get required packages
 if(!require(devtools)){install.packages("devtools")}
