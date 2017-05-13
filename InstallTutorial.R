@@ -21,9 +21,10 @@ if(!require(DECIPHER)){biocLite("DECIPHER")}
 if(!require(phangorn)){biocLite("phangorn")}
 if(!require(ggtree)){biocLite("ggtree")}
 if(!require(DESeq2)){biocLite("DESeq2")}
+if(!require(dada2)){biocLite("dada2")}
+
 
 require(devtools)
-if(!require(dada2)){devtools::install_github("benjjneb/dada2")}
 devtools::install_github("jbisanz/MicrobeR") #always resinstall this as it is in development phase
 
 if(.Platform$OS.type=="unix"){
